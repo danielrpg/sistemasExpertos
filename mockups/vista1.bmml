@@ -1,0 +1,15 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1005" measuredH="483" mockupW="565" mockupH="455">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TitleWindow" x="440" y="28" w="565" h="455" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>23</bottomheight>
+        <close>true</close>
+        <dragger>false</dragger>
+        <maximizeRestore>true</maximizeRestore>
+        <minimize>true</minimize>
+        <text>Orden%20Cerrado</text>
+        <topheight>26</topheight>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
