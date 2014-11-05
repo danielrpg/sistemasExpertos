@@ -9,10 +9,15 @@ public class Memoria {
     }
     
     public boolean Evaluar(String fact) {
+        String consulta = "(deffacts ordenes (orden (voz \"";
+        consulta = consulta.concat(fact);
+        consulta = consulta.concat("\") (estado FALSE) (escuadra 1) (arma sinArma)))"); 
+        System.out.println(consulta);
         try {
             memoria.eval("(clear)");
             defineTemplate();
-            memoria.eval(fact);
+
+            memoria.eval(consulta);
             defineConocimiento();
             memoria.eval("(reset)");
             memoria.eval("(focus ordenar)");

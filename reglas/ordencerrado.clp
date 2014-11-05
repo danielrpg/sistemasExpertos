@@ -24,7 +24,7 @@
 (defrule discresion
     ?p <- (orden (voz "a discresion") (escuadra ?e) )
     =>
-    (bind ?*var* (call "Hizo a discresion Escuadra "concat ?e )
+    (bind ?*var* "Hizo a discresion Escuadra ")
 )
 
 ;(reset)
