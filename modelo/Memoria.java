@@ -1,6 +1,7 @@
 package sistemasExpertos.modelo;
 
 import jess.*;
+import java.util.ArrayList;
 
 public class Memoria {
     private Rete memoria; 
@@ -8,7 +9,7 @@ public class Memoria {
         memoria = new Rete();
     }
     
-    public boolean Evaluar(String fact) {
+    public ArrayList<String> Evaluar(String fact) {
         String consulta = "(deffacts ordenes (orden (voz \"";
         consulta = consulta.concat(fact);
         consulta = consulta.concat("\") (estado FALSE) (escuadra 1) (arma sinArma)))"); 
@@ -24,15 +25,18 @@ public class Memoria {
             int count = memoria.run();
             System.out.println("CANTIDAD: " + count);
             if( count > 0 ){
-                String action = memoria.getGlobalContext().getVariable("*var*").stringValue(null);
-                System.out.println("ACTION : " + action);
+                ArrayList<String> action = (ArrayList<String>)memoria.getGlobalContext().getVariable("*list*").javaObjectValue(null);
+                System.out.println("ACTION : " + action.size());
+                for(int i=0; i<action.size(); i++) {
+                    System.out.println("VALUE: " + action.get(i));
+                }
             } else {
                 System.out.println("NO ACTION");
             }     
-            return true;
+            return action;
         } catch (JessException ex) {
             System.out.println(ex);
-            return false;
+            return (new ArrayList<String>);
         }
     }
 

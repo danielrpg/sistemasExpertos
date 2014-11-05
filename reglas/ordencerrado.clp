@@ -15,16 +15,21 @@
 ;)
 
 (defmodule ordenar) ;indica que tipo de orden es y que acciones tomar.
+(defglobal ?*list* = (new java.util.ArrayList))
+
+(bind ?*list* (new java.util.ArrayList)) 
 
 (defrule atencion
     ?p <- (orden (voz "atencion-fir"))
     =>
-    (bind ?*var*"Hizo atencion fir!!!")
+    (?*list* add "Hizo atencion fir!!!")
+    (?*list* add "paso de a discresion")
 )
 (defrule discresion
     ?p <- (orden (voz "a discresion") (escuadra ?e) )
     =>
-    (bind ?*var* "Hizo a discresion Escuadra ")
+    (?*list* add "Hizo a discresion Escuadra ")
+    (?*list* add "Paso de atencion fir")
 )
 
 ;(reset)
