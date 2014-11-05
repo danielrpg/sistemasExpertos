@@ -24,8 +24,9 @@ public class Memoria {
             memoria.eval("(focus ordenar)");
             int count = memoria.run();
             System.out.println("CANTIDAD: " + count);
+            ArrayList<String> action = new ArrayList<String>();
             if( count > 0 ){
-                ArrayList<String> action = (ArrayList<String>)memoria.getGlobalContext().getVariable("*list*").javaObjectValue(null);
+                action = (ArrayList<String>)memoria.getGlobalContext().getVariable("*list*").javaObjectValue(null);
                 System.out.println("ACTION : " + action.size());
                 for(int i=0; i<action.size(); i++) {
                     System.out.println("VALUE: " + action.get(i));
@@ -36,7 +37,7 @@ public class Memoria {
             return action;
         } catch (JessException ex) {
             System.out.println(ex);
-            return (new ArrayList<String>);
+            return (new ArrayList<String>());
         }
     }
 

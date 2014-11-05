@@ -5,6 +5,7 @@ import sistemasExpertos.vista.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Controlador {
 
@@ -17,9 +18,10 @@ public class Controlador {
 
         sis.addButtonListener(new ActionListener(){
             public void actionPerformed(ActionEvent event) {
-                sis.getConsulta();
-                System.out.println(sis.getConsulta());
-                mem.Evaluar(sis.getConsulta());
+                //sis.getConsulta();
+                //System.out.println(sis.getConsulta());
+                ArrayList<String> pasos = mem.Evaluar(sis.getConsulta());
+                sis.addPanel(pasos);
             }
         });
 
