@@ -20,7 +20,7 @@ public class Controlador {
             public void actionPerformed(ActionEvent event) {
                 //sis.getConsulta();
                 //System.out.println(sis.getConsulta());
-                ArrayList<String> pasos = mem.Evaluar(sis.getConsulta());
+                ArrayList<String> pasos = mem.Evaluar(sis.getConsulta(), sis.getArma());
                 sis.addPanel(pasos);
             }
         });

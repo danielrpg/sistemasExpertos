@@ -9,10 +9,13 @@ public class Memoria {
         memoria = new Rete();
     }
     
-    public ArrayList<String> Evaluar(String fact) {
+    public ArrayList<String> Evaluar(String fact, String arma) {
         String consulta = "(deffacts ordenes (orden (voz \"";
         consulta = consulta.concat(fact);
-        consulta = consulta.concat("\") (estado FALSE) (escuadra 1) (arma sinArma)))"); 
+        consulta = consulta.concat("\") (estado al_paso) (escuadra 1) (arma ");
+        consulta = consulta.concat(arma);
+        consulta = consulta.concat(")))");
+        
         System.out.println(consulta);
         try {
             memoria.eval("(clear)");
@@ -23,14 +26,10 @@ public class Memoria {
             memoria.eval("(reset)");
             memoria.eval("(focus ordenar)");
             int count = memoria.run();
-            System.out.println("CANTIDAD: " + count);
             ArrayList<String> action = new ArrayList<String>();
             if( count > 0 ){
                 action = (ArrayList<String>)memoria.getGlobalContext().getVariable("*list*").javaObjectValue(null);
                 System.out.println("ACTION : " + action.size());
-                for(int i=0; i<action.size(); i++) {
-                    System.out.println("VALUE: " + action.get(i));
-                }
             } else {
                 System.out.println("NO ACTION");
             }     
