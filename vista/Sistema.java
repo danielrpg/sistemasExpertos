@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.nio.charset.Charset;
+import java.awt.Font;
 
 public class Sistema extends JFrame {
 
@@ -72,10 +74,12 @@ public class Sistema extends JFrame {
         center = new JPanel();
         center.setLayout(new BoxLayout(center, BoxLayout.PAGE_AXIS));
         for(int i=0; i< pasos.size(); i++) {
-            center.add(new JLabel(i + ".- " + pasos.get(i)));
+            Charset.forName("UTF-8").encode(pasos.get(i));
+            JLabel texto = new JLabel(i+1+ ".- " + pasos.get(i));
+            texto.setFont(new Font("Arial",Font.PLAIN, 20));
+            center.add(texto);
         }
         this.add(center, BorderLayout.CENTER);
-        System.out.println("Chevere");
         this.revalidate();
     }   
 }

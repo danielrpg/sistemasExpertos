@@ -1,0 +1,7 @@
+#!/bin/bash
+
+javac -d classes/ -classpath lib/Jess71p2/lib/jess.jar modelo/*.java controlador/*.java vista/*.java Inicio.java
+
+cd classes
+
+java -classpath sistemasExpertos/lib/jess.jar:. sistemasExpertos.Inicio
